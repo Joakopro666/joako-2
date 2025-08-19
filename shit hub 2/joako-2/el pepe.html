@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Página Personal</title>
+
+  <!-- Fuente y estilos básicos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f172a;          /* fondo oscuro azulado */
+      --card:#111827;        /* tarjetas */
+      --muted:#94a3b8;       /* texto secundario */
+      --text:#e5e7eb;        /* texto principal */
+      --brand:#22d3ee;       /* acento cian */
+      --brand-2:#a78bfa;     /* acento violeta */
+      --ring: 0 0 0 2px rgba(34,211,238,.25);
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(167,139,250,.15), transparent 60%),
+        radial-gradient(900px 500px at 120% 20%, rgba(34,211,238,.12), transparent 60%),
+        var(--bg);
+      line-height:1.6;
+    }
+
+    .container{
+      max-width:960px;
+      margin-inline:auto;
+      padding:32px 20px 64px;
+    }
+
+    header{
+      text-align:center;
+      margin-bottom:28px;
+    }
+    header h1{
+      font-size: clamp(28px, 4vw, 40px);
+      line-height:1.15;
+      margin:0 0 6px;
+      font-weight:800;
+      letter-spacing:.2px;
+      background: linear-gradient(90deg,var(--brand),var(--brand-2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    header p{margin:0;color:var(--muted)}
+
+    /* Tarjetas secciones */
+    .grid{
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      margin-top:18px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.005));
+      border:1px solid rgba(148,163,184,.15);
+      border-radius:var(--radius);
+      padding:20px 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:700;
+    }
+    .note{
+      font-size:14px;
+      color:var(--muted);
+      margin:6px 0 14px;
+    }
+
+    /* Listas */
+    ol, ul{padding-left:18px;margin:0}
+    li{margin:6px 0}
+    .list-bullet ul>li{position:relative;padding-left:14px}
+    .list-bullet ul>li::before{
+      content:"";
+      position:absolute;left:0;top:10px;
+      width:6px;height:6px;border-radius:50%;
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      box-shadow:0 0 0 3px rgba(167,139,250,.15);
+    }
+
+    /* Tabla */
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.15);
+      box-shadow: var(--shadow);
+      background: rgba(17,24,39,.6);
+    }
+    thead th{
+      text-align:left;
+      padding:12px 14px;
+      font-weight:700;
+      background:linear-gradient(90deg, rgba(34,211,238,.12), rgba(167,139,250,.12));
+      border-bottom:1px solid rgba(148,163,184,.18);
+    }
+    tbody td{
+      padding:12px 14px;
+      border-bottom:1px solid rgba(148,163,184,.12);
+    }
+    tbody tr:last-child td{border-bottom:none}
+    tbody tr:hover td{background:rgba(255,255,255,.03)}
+
+    /* Formulario */
+    form{display:grid;gap:12px}
+    label{font-size:14px;color:var(--muted)}
+    input, select, button{
+      width:100%;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.2);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, select:focus{box-shadow:var(--ring)}
+    button{
+      cursor:pointer;
+      font-weight:700;
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));
+      border:none;
+      transition: transform .06s ease, filter .2s ease;
+    }
+    button:hover{filter:brightness(1.05)}
+    button:active{transform:translateY(1px)}
+    footer{
+      margin-top:28px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Encabezado de la página -->
+    <header>
+      <h1>Bienvenidos a mi página personal</h1>
+      <p>Este es un ejemplo de práctica con HTML.</p>
+    </header>
+
+    <section class="grid">
+      <!-- Lista ordenada de materias favoritas -->
+      <article class="card">
+        <h2>Mis materias favoritas</h2>
+        <p class="note"><!-- Esta es mi lista ordenada de materias --></p>
+        <ol>
+          <li>Matemática</li>
+          <li>Programación</li>
+          <li>Historia</li>
+        </ol>
+      </article>
+
+      <!-- Lista desordenada de comidas favoritas -->
+      <article class="card list-bullet">
+        <h2>Mis comidas favoritas</h2>
+        <p class="note"><!-- Esta es mi lista desordenada de comidas --></p>
+        <ul>
+          <li>Pizza</li>
+          <li>Hamburguesa</li>
+          <li>Empanadas</li>
+        </ul>
+      </article>
+
+      <!-- Lista anidada de lenguajes de programación -->
+      <article class="card list-bullet">
+        <h2>Lenguajes de Programación</h2>
+        <p class="note"><!-- Esta es mi lista anidada --></p>
+        <ul>
+          <li>Lenguajes de Programación
+            <ul>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>C++</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Tabla con Nombre, Edad, Hobby -->
+    <section class="card" style="margin-top:18px">
+      <h2>Tabla de datos</h2>
+      <p class="note"><!-- Esta tabla tiene 3 columnas: Nombre, Edad y Hobby --></p>
+      <div style="overflow:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Edad</th>
+              <th>Hobby</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Joaquín</td>
+              <td>16</td>
+              <td>Gym</td>
+            </tr>
+            <tr>
+              <td>Mariano</td>
+              <td>16</td>
+              <td>Dibujo</td>
+            </tr>
+            <tr>
+              <td>Loan</td>
+              <td>No me quiso decir</td>
+              <td>Perderse</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+<!-- ...dejas tu <head> como está y añade estos estilos (puede ir dentro de <style>) -->
+<style>
+  .alert{margin-top:10px;padding:12px 14px;border-radius:12px;border:1px solid;outline:none}
+  .alert.ok{border-color:rgba(34,211,238,.35);background:rgba(34,211,238,.10)}
+  .alert.err{border-color:rgba(244,63,94,.45);background:rgba(244,63,94,.10)}
+</style>
+
+<!-- Formulario con id y required -->
+<section class="card" style="margin-top:18px">
+  <h2>Formulario de contacto</h2>
+  <p class="note"><!-- Este formulario permite ingresar datos básicos --></p>
+
+  <form id="contacto" novalidate>
+    <!-- Campo de texto para nombre -->
+    <div>
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required />
+    </div>
+
+    <!-- Campo de email -->
+    <div>
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="tunombre@correo.com" required />
+    </div>
+
+    <!-- Lista desplegable de roles -->
+    <div>
+      <label for="rol">Rol</label>
+      <select id="rol" name="rol">
+        <option value="estudiante">Estudiante</option>
+        <option value="profesor">Profesor</option>
+        <option value="invitado">Invitado</option>
+      </select>
+    </div>
+
+    <!-- Botón de enviar -->
+    <button type="submit">Enviar</button>
+
+    <!-- Mensajes -->
+    <div id="form-msg" class="alert" hidden tabindex="-1" aria-live="polite"></div>
+  </form>
+</section>
+
+<!-- Pega este script antes de </body> -->
+<script>
+(function(){
+  const f = document.getElementById('contacto');
+  const msg = document.getElementById('form-msg');
+
+  function show(text, error=false){
+    msg.textContent = text;
+    msg.className = 'alert ' + (error ? 'err' : 'ok');
+    msg.hidden = false;
+    msg.focus();
+  }
+
+  f.addEventListener('submit', function(e){
+    e.preventDefault(); // evita que recargue la página
+
+    const nombre = f.nombre.value.trim();
+    const email  = f.email.value.trim();
+    const rol    = f.rol.value;
+
+    if(!nombre || !email){
+      show('Completa nombre y correo.', true);
+      return;
+    }
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!emailOk){
+      show('El correo no es válido.', true);
+      return;
+    }
+
+    // Acá “simulamos” el envío
+    show(`¡Gracias, ${nombre}! Te registré como ${rol}. Te contactaremos a ${email}.`);
+    f.reset();
+  });
+})();
+</script>
+
